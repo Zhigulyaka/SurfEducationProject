@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E305795328A00A2C00C98000 /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305795228A00A2C00C98000 /* TabBarModel.swift */; };
+		E305795628A00ECE00C98000 /* TabBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305795528A00ECE00C98000 /* TabBarConfigurator.swift */; };
+		E305795828A010B700C98000 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305795728A010B700C98000 /* MainViewController.swift */; };
+		E305795A28A010D200C98000 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305795928A010D200C98000 /* FavouritesViewController.swift */; };
+		E305795C28A010E200C98000 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305795B28A010E200C98000 /* ProfileViewController.swift */; };
 		E3C1FCB2289ECA7C0089D3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */; };
 		E3C1FCB6289ECA7C0089D3F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FCB5289ECA7C0089D3F8 /* ViewController.swift */; };
 		E3C1FCB9289ECA7C0089D3F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FCB7289ECA7C0089D3F8 /* Main.storyboard */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E305795228A00A2C00C98000 /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
+		E305795528A00ECE00C98000 /* TabBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarConfigurator.swift; sourceTree = "<group>"; };
+		E305795728A010B700C98000 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E305795928A010D200C98000 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		E305795B28A010E200C98000 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E3C1FCAE289ECA7C0089D3F8 /* SurfEducationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfEducationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3C1FCB5289ECA7C0089D3F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +45,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E305794F28A006A700C98000 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */,
+				E3C1FCBF289ECA7E0089D3F8 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E305795028A0073E00C98000 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				E305795428A00A3A00C98000 /* Models */,
+				E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */,
+				E3C1FCBC289ECA7E0089D3F8 /* LaunchScreen.storyboard */,
+				E305795528A00ECE00C98000 /* TabBarConfigurator.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		E305795128A009DF00C98000 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E3C1FCB7289ECA7C0089D3F8 /* Main.storyboard */,
+				E3C1FCB5289ECA7C0089D3F8 /* ViewController.swift */,
+				E305795728A010B700C98000 /* MainViewController.swift */,
+				E305795928A010D200C98000 /* FavouritesViewController.swift */,
+				E305795B28A010E200C98000 /* ProfileViewController.swift */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		E305795428A00A3A00C98000 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E305795228A00A2C00C98000 /* TabBarModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E3C1FCA5289ECA7C0089D3F8 = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +104,11 @@
 		E3C1FCB0289ECA7C0089D3F8 /* SurfEducationProject */ = {
 			isa = PBXGroup;
 			children = (
-				E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */,
-				E3C1FCB5289ECA7C0089D3F8 /* ViewController.swift */,
-				E3C1FCB7289ECA7C0089D3F8 /* Main.storyboard */,
-				E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */,
-				E3C1FCBC289ECA7E0089D3F8 /* LaunchScreen.storyboard */,
-				E3C1FCBF289ECA7E0089D3F8 /* Info.plist */,
+				E305795128A009DF00C98000 /* PresentationLayer */,
+				E305795028A0073E00C98000 /* Business */,
+				E305794F28A006A700C98000 /* Resources */,
 			);
-			path = SurfEducationProject;
+			name = SurfEducationProject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +182,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E305795A28A010D200C98000 /* FavouritesViewController.swift in Sources */,
+				E305795328A00A2C00C98000 /* TabBarModel.swift in Sources */,
 				E3C1FCB6289ECA7C0089D3F8 /* ViewController.swift in Sources */,
+				E305795628A00ECE00C98000 /* TabBarConfigurator.swift in Sources */,
+				E305795C28A010E200C98000 /* ProfileViewController.swift in Sources */,
 				E3C1FCB2289ECA7C0089D3F8 /* AppDelegate.swift in Sources */,
+				E305795828A010B700C98000 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SurfEducationProject/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -311,7 +363,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SurfEducationProject/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
