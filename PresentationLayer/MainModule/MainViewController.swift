@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     // MARK: - Constants
     
     private enum Constants {
@@ -33,7 +33,19 @@ class MainViewController: UIViewController {
         view.backgroundColor = .white
         
         configureModel()
-        configureAppearance()
+        configureCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addSearchItem()
+        navigationController?.navigationBar.topItem?.title = "Главная"
+    }
+    
+    // MARK: - Actions
+    
+    override func searchAction(_: Any) {
+        print("tapped")
     }
 }
 
@@ -41,18 +53,9 @@ class MainViewController: UIViewController {
 
 private extension MainViewController {
     
-    func configureAppearance() {
-        configureCollectionView()
-        placeCollectionView()
-    }
-    
     func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: configureCollectionLayout())
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.showsVerticalScrollIndicator = false
+        collectionView = addCollectionView(layout: configureCollectionLayout())
         collectionView.register(MainItemCollectionViewCell.self, forCellWithReuseIdentifier: "\(MainItemCollectionViewCell.self)")
-        collectionView.dataSource = self
     }
     
     func configureCollectionLayout() -> UICollectionViewFlowLayout {
@@ -69,15 +72,6 @@ private extension MainViewController {
         layout.minimumLineSpacing = Constants.spacingBetweenRows
         layout.minimumInteritemSpacing = .zero
         return layout
-    }
-    
-    func placeCollectionView() {
-        view.addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
     func configureModel() {
@@ -98,7 +92,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainItemCollectionViewCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(MainItemCollectionViewCell.self)", for: indexPath)
         guard let cell = cell as? MainItemCollectionViewCell else {
             return cell
         }
