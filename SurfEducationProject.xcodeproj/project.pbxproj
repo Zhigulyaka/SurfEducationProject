@@ -14,7 +14,9 @@
 		E305795C28A010E200C98000 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305795B28A010E200C98000 /* ProfileViewController.swift */; };
 		E326DF9128A584C800BE3391 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DF9028A584C800BE3391 /* MainModel.swift */; };
 		E326DF9528A5897000BE3391 /* MainItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DF9428A5897000BE3391 /* MainItemCollectionViewCell.swift */; };
-		E326DF9828A7E9F200BE3391 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E326DF9728A7E9F200BE3391 /* SFProText-Regular.ttf */; };
+		E326DF9C28A80EE200BE3391 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DF9B28A80EE200BE3391 /* BaseViewController.swift */; };
+		E326DF9E28A82DD500BE3391 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DF9D28A82DD500BE3391 /* UIViewController+Extensions.swift */; };
+		E326DFA128A8331900BE3391 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E326DFA028A8331900BE3391 /* SFProText-Regular.ttf */; };
 		E3C1FCB2289ECA7C0089D3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */; };
 		E3C1FCBB289ECA7E0089D3F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */; };
 		E3C1FCBE289ECA7E0089D3F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FCBC289ECA7E0089D3F8 /* LaunchScreen.storyboard */; };
@@ -28,7 +30,9 @@
 		E305795B28A010E200C98000 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E326DF9028A584C800BE3391 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		E326DF9428A5897000BE3391 /* MainItemCollectionViewCell.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = MainItemCollectionViewCell.swift; sourceTree = "<group>"; };
-		E326DF9728A7E9F200BE3391 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFProText-Regular.ttf"; path = "../../../Downloads/SFProText-Regular.ttf"; sourceTree = "<group>"; };
+		E326DF9B28A80EE200BE3391 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E326DF9D28A82DD500BE3391 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		E326DFA028A8331900BE3391 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
 		E3C1FCAE289ECA7C0089D3F8 /* SurfEducationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfEducationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,10 +64,12 @@
 		E305795028A0073E00C98000 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				E326DF9F28A82DDC00BE3391 /* Extensions */,
 				E305795428A00A3A00C98000 /* Models */,
 				E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */,
 				E3C1FCBC289ECA7E0089D3F8 /* LaunchScreen.storyboard */,
 				E305795528A00ECE00C98000 /* TabBarConfigurator.swift */,
+				E326DF9B28A80EE200BE3391 /* BaseViewController.swift */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -107,9 +113,17 @@
 		E326DF9628A7E9D300BE3391 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E326DF9728A7E9F200BE3391 /* SFProText-Regular.ttf */,
+				E326DFA028A8331900BE3391 /* SFProText-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E326DF9F28A82DDC00BE3391 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E326DF9D28A82DD500BE3391 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E3C1FCA5289ECA7C0089D3F8 = {
@@ -197,8 +211,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3C1FCBE289ECA7E0089D3F8 /* LaunchScreen.storyboard in Resources */,
-				E326DF9828A7E9F200BE3391 /* SFProText-Regular.ttf in Resources */,
 				E3C1FCBB289ECA7E0089D3F8 /* Assets.xcassets in Resources */,
+				E326DFA128A8331900BE3391 /* SFProText-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,9 +225,11 @@
 			files = (
 				E305795A28A010D200C98000 /* FavouritesViewController.swift in Sources */,
 				E305795328A00A2C00C98000 /* TabBarModel.swift in Sources */,
+				E326DF9E28A82DD500BE3391 /* UIViewController+Extensions.swift in Sources */,
 				E305795628A00ECE00C98000 /* TabBarConfigurator.swift in Sources */,
 				E326DF9128A584C800BE3391 /* MainModel.swift in Sources */,
 				E326DF9528A5897000BE3391 /* MainItemCollectionViewCell.swift in Sources */,
+				E326DF9C28A80EE200BE3391 /* BaseViewController.swift in Sources */,
 				E305795C28A010E200C98000 /* ProfileViewController.swift in Sources */,
 				E3C1FCB2289ECA7C0089D3F8 /* AppDelegate.swift in Sources */,
 				E305795828A010B700C98000 /* MainViewController.swift in Sources */,
