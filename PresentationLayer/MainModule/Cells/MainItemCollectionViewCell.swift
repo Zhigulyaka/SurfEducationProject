@@ -49,9 +49,9 @@ final class MainItemCollectionViewCell: UICollectionViewCell {
                titleLabel.text = title
           }
      }
-     var image: UIImage? {
+     var image: String = "" {
           didSet {
-               imageView.image = image
+               imageView.loadImage(from: URL(string: image))
           }
      }
      var isFavourite: Bool = false {

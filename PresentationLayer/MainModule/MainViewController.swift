@@ -34,12 +34,32 @@ class MainViewController: BaseViewController {
         
         configureModel()
         configureCollectionView()
+        
+        let crendentials = AuthRequestModel(phone: "+79876543219", password: "qwerty")
+//        AuthService().performLoginRequestAndSaveToken(credentials: crendentials) { result in
+//            switch result {
+//            case let .failure(error):
+//                print(error)
+//            case let .success(resp):
+//                print(resp)
+//            }
+//        }
+        PicturesService().loadPictures { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .failure(error):
+                break
+            case let .success(resp):
+                self.model.items = resp
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addSearchItem()
         navigationController?.navigationBar.topItem?.title = "Главная"
+        configureSearchController()
     }
     
     // MARK: - Actions
@@ -75,7 +95,6 @@ private extension MainViewController {
     }
     
     func configureModel() {
-        model.getPosts()
         model.didItemsUpdated = { [weak self] in
             guard let self = self else { return }
             self.collectionView.reloadData()
@@ -98,11 +117,11 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         let item = model.items[indexPath.row]
         cell.title = item.title
-        cell.image = item.image
-        cell.isFavourite = item.isFavourite
+        cell.image = item.photoUrl
+        cell.isFavourite = false
         cell.didFavouriteTapped = { [weak self] isFavourite in
             guard let self = self else { return }
-            self.model.items[indexPath.item].isFavourite = isFavourite
+      //      self.model.items[indexPath.item].isFavourite = isFavourite
         }
         return cell
     }
