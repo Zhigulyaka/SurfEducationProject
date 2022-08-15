@@ -5,7 +5,6 @@
 //  Created by Alina Kharunova on 15.08.2022.
 //
 
-import Foundation
 import UIKit
 
 final class DetailItemViewController: BaseViewController {

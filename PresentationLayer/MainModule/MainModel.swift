@@ -21,4 +21,10 @@ final class MainModel {
             didItemsUpdated?()
         }
     }
+    
+    var filteredItems: [PictureResponseModel] = [] {
+        didSet {
+            didItemsUpdated?()
+        }
+    }
 }

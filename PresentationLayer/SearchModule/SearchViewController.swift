@@ -1,13 +1,13 @@
 //
-//  MainViewController.swift
+//  SearchViewController.swift
 //  SurfEducationProject
 //
-//  Created by Alina Kharunova on 07.08.2022.
+//  Created by Alina Kharunova on 16.08.2022.
 //
 
 import UIKit
 
-final class MainViewController: BaseViewController {
+final class SarchViewController: BaseViewController {
     // MARK: - Constants
     
     private enum Constants {
@@ -20,8 +20,7 @@ final class MainViewController: BaseViewController {
     
     // MARK: - Properties
     
-    //Private
-    private let model = MainModel()
+    var model = MainModel()
     
     // MARK: - Sublayers
     
@@ -32,48 +31,19 @@ final class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
-        configureModel()
         configureCollectionView()
-        
-        let crendentials = AuthRequestModel(phone: "+79876543219", password: "qwerty")
-//        AuthService().performLoginRequestAndSaveToken(credentials: crendentials) { result in
-//            switch result {
-//            case let .failure(error):
-//                print(error)
-//            case let .success(resp):
-//                print(resp)
-//            }
-//        }
-        PicturesService().loadPictures { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case let .failure(error):
-                break
-            case let .success(resp):
-                self.model.items = resp
-            }
-        }
+        configureModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addSearchItem()
-        navigationItem.title = "Главная"
-    }
-    
-    // MARK: - Actions
-    
-    override func searchAction(_: Any) {
-        let searchConroller = SarchViewController()
-        searchConroller.model = model
-        navigationController?.pushViewController(searchConroller, animated: true)
+        configureSearchController()
     }
 }
 
-// MARK: - Private Methods
+// MARK: - Private method
 
-private extension MainViewController {
+private extension SarchViewController {
     
     func configureCollectionView() {
         collectionView = addCollectionView(layout: configureCollectionLayout())
@@ -99,17 +69,20 @@ private extension MainViewController {
     func configureModel() {
         model.didItemsUpdated = { [weak self] in
             guard let self = self else { return }
-            self.collectionView.reloadData()
+            self.collectionView.performBatchUpdates({
+                let indexSet = IndexSet(integersIn: 0 ... 0)
+                self.collectionView.reloadSections(indexSet)
+            }, completion: nil)
         }
     }
 }
 
 // MARK: - UICollectionView
 
-extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension SarchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_: UICollectionView, numberOfItemsInSection: Int) -> Int {
-        return model.items.count
+        return model.filteredItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -117,7 +90,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         guard let cell = cell as? MainItemCollectionViewCell else {
             return cell
         }
-        let item = model.items[indexPath.row]
+        let item = model.filteredItems[indexPath.row]
         cell.title = item.title
         cell.image = item.photoUrl
         cell.isFavourite = false
@@ -129,8 +102,22 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailController = DetailItemViewController()
-        detailController.itemModel = model.items[indexPath.row]
-        navigationController?.pushViewController(detailController, animated: true)
+        let controller = DetailItemViewController()
+        controller.itemModel = model.filteredItems[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+// MARK: - SearchDelegate
+
+extension SarchViewController {
+    override func updateSearchResults(for searchController: UISearchController) {
+        super.updateSearchResults(for: searchController)
+
+        if searchText != "" {
+            model.filteredItems = model.items.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+        } else {
+            model.filteredItems = []
+        }
     }
 }
