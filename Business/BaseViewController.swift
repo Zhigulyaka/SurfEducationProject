@@ -9,6 +9,18 @@ import Foundation
 import UIKit
 
 class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
+    // MARK: - Properties
+    
+    private let searchController: UISearchController = {
+        $0.searchBar.barStyle = .default
+        $0.searchBar.searchBarStyle = .minimal
+        $0.obscuresBackgroundDuringPresentation = false
+        $0.definesPresentationContext = true
+        return $0
+    }(UISearchController(searchResultsController: nil))
+    
+    var searchText = ""
+    var isSearchMode = false
     
     // MARK: - Lifecycle
 
@@ -46,8 +58,66 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         let search = UIBarButtonItem(image: UIImage(named: "navBarSearch"), style: .plain, target: self, action: #selector(searchAction))
         navigationController?.navigationBar.topItem?.rightBarButtonItem = search
     }
+    
+    // MARK: - UISearchController
+    
+    public func configureSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.showsCancelButton = false
+   //     searchController.becomeFirstResponder()
+
+        if #available(iOS 13.0, *) {
+
+            searchController.searchBar.searchTextField.leftView?.tintColor = .placeholderText
+            searchController.searchBar.searchTextField.backgroundColor = .systemBackground
+
+            searchController.searchBar.searchTextField.smartDashesType = .no
+            searchController.searchBar.searchTextField.autocorrectionType = .no
+            searchController.searchBar.searchTextField.autocapitalizationType = .none
+            searchController.searchBar.searchTextField.spellCheckingType = .no
+
+            searchController.searchBar.searchTextField.placeholder = "Поиск"
+        }
+        navigationController?.navigationBar.topItem?.searchController = searchController
+    }
 
     // MARK: - Actions
     
     @objc func searchAction(_: Any) {}
 }
+
+// MARK: - UISearchResultsUpdating
+
+extension BaseViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        searchText = searchController.searchBar.text ?? ""
+    }
+}
+
+// MARK: - UISearchControllerDelegate
+
+extension BaseViewController: UISearchControllerDelegate {
+    func willPresentSearchController(_: UISearchController) {
+        isSearchMode = true
+        searchController.becomeFirstResponder()
+    }
+
+    func willDismissSearchController(_: UISearchController) {
+        searchText = ""
+        isSearchMode = false
+        searchController.resignFirstResponder()
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension BaseViewController: UISearchBarDelegate {
+
+    func searchBarCancelButtonClicked(_: UISearchBar) {
+        searchText = ""
+        searchController.resignFirstResponder()
+    }
+}
+
