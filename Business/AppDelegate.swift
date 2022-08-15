@@ -20,7 +20,7 @@ var window: UIWindow?
     }
     
     func goToMain() {
-        window?.rootViewController = UINavigationController(rootViewController: TabBarConfigurator().configure())
+        window?.rootViewController = TabBarConfigurator().configure()
     }
 }
 

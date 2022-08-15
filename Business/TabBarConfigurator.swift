@@ -36,8 +36,9 @@ private extension TabBarConfigurator {
         
         allTabs.forEach { tab in
             let controller = tab.controller
+            let navigationController = UINavigationController(rootViewController: controller)
             controller.tabBarItem = tab.tabBarItem
-            viewControllers.append(controller)
+            viewControllers.append(navigationController)
         }
         
         return viewControllers

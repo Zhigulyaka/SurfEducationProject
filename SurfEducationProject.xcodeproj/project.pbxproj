@@ -31,6 +31,11 @@
 		E326DFC128AAC93400BE3391 /* BaseTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFC028AAC93400BE3391 /* BaseTokenStorage.swift */; };
 		E326DFC328AAC95200BE3391 /* TokenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFC228AAC95200BE3391 /* TokenContainer.swift */; };
 		E326DFC528AAC97700BE3391 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFC428AAC97700BE3391 /* TokenStorage.swift */; };
+		E326DFC828AAD60200BE3391 /* ItemImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFC728AAD60200BE3391 /* ItemImageTableViewCell.swift */; };
+		E326DFCA28AAD63400BE3391 /* TitleDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFC928AAD63400BE3391 /* TitleDateTableViewCell.swift */; };
+		E326DFCD28AAD6A700BE3391 /* DetailItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFCC28AAD6A700BE3391 /* DetailItemViewController.swift */; };
+		E326DFCF28AADBFA00BE3391 /* UIImageView+Extensoins.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFCE28AADBFA00BE3391 /* UIImageView+Extensoins.swift */; };
+		E326DFD128AAE9F100BE3391 /* DescriptionTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFD028AAE9F100BE3391 /* DescriptionTextTableViewCell.swift */; };
 		E3C1FCB2289ECA7C0089D3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */; };
 		E3C1FCBB289ECA7E0089D3F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */; };
 		E3C1FCBE289ECA7E0089D3F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FCBC289ECA7E0089D3F8 /* LaunchScreen.storyboard */; };
@@ -61,6 +66,11 @@
 		E326DFC028AAC93400BE3391 /* BaseTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTokenStorage.swift; sourceTree = "<group>"; };
 		E326DFC228AAC95200BE3391 /* TokenContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenContainer.swift; sourceTree = "<group>"; };
 		E326DFC428AAC97700BE3391 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
+		E326DFC728AAD60200BE3391 /* ItemImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageTableViewCell.swift; sourceTree = "<group>"; };
+		E326DFC928AAD63400BE3391 /* TitleDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDateTableViewCell.swift; sourceTree = "<group>"; };
+		E326DFCC28AAD6A700BE3391 /* DetailItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemViewController.swift; sourceTree = "<group>"; };
+		E326DFCE28AADBFA00BE3391 /* UIImageView+Extensoins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensoins.swift"; sourceTree = "<group>"; };
+		E326DFD028AAE9F100BE3391 /* DescriptionTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextTableViewCell.swift; sourceTree = "<group>"; };
 		E3C1FCAE289ECA7C0089D3F8 /* SurfEducationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfEducationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +116,7 @@
 		E305795128A009DF00C98000 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				E326DFC628AAD53C00BE3391 /* DetailItemModule */,
 				E326DF9228A5891000BE3391 /* MainModule */,
 				E305795928A010D200C98000 /* FavouritesViewController.swift */,
 				E305795B28A010E200C98000 /* ProfileViewController.swift */,
@@ -151,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				E326DF9D28A82DD500BE3391 /* UIViewController+Extensions.swift */,
+				E326DFCE28AADBFA00BE3391 /* UIImageView+Extensoins.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,6 +234,25 @@
 				E326DFBC28AAC8CF00BE3391 /* PicturesService.swift */,
 			);
 			path = PictureService;
+			sourceTree = "<group>";
+		};
+		E326DFC628AAD53C00BE3391 /* DetailItemModule */ = {
+			isa = PBXGroup;
+			children = (
+				E326DFCB28AAD65300BE3391 /* Cells */,
+				E326DFCC28AAD6A700BE3391 /* DetailItemViewController.swift */,
+			);
+			path = DetailItemModule;
+			sourceTree = "<group>";
+		};
+		E326DFCB28AAD65300BE3391 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E326DFC928AAD63400BE3391 /* TitleDateTableViewCell.swift */,
+				E326DFC728AAD60200BE3391 /* ItemImageTableViewCell.swift */,
+				E326DFD028AAE9F100BE3391 /* DescriptionTextTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		E3C1FCA5289ECA7C0089D3F8 = {
@@ -326,10 +357,15 @@
 				E326DFAD28AAC73E00BE3391 /* NetworkMethod.swift in Sources */,
 				E305795328A00A2C00C98000 /* TabBarModel.swift in Sources */,
 				E326DFC128AAC93400BE3391 /* BaseTokenStorage.swift in Sources */,
+				E326DFCD28AAD6A700BE3391 /* DetailItemViewController.swift in Sources */,
+				E326DFCF28AADBFA00BE3391 /* UIImageView+Extensoins.swift in Sources */,
+				E326DFD128AAE9F100BE3391 /* DescriptionTextTableViewCell.swift in Sources */,
 				E326DFB928AAC88700BE3391 /* UImageView+ImageLoader.swift in Sources */,
 				E326DF9E28A82DD500BE3391 /* UIViewController+Extensions.swift in Sources */,
+				E326DFC828AAD60200BE3391 /* ItemImageTableViewCell.swift in Sources */,
 				E305795628A00ECE00C98000 /* TabBarConfigurator.swift in Sources */,
 				E326DFAA28AAC6FB00BE3391 /* BaseNetworkTask.swift in Sources */,
+				E326DFCA28AAD63400BE3391 /* TitleDateTableViewCell.swift in Sources */,
 				E326DFBD28AAC8CF00BE3391 /* PicturesService.swift in Sources */,
 				E326DF9128A584C800BE3391 /* MainModel.swift in Sources */,
 				E326DF9528A5897000BE3391 /* MainItemCollectionViewCell.swift in Sources */,
