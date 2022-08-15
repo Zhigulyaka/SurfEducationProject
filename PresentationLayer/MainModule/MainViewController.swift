@@ -58,8 +58,7 @@ class MainViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addSearchItem()
-        navigationController?.navigationBar.topItem?.title = "Главная"
-        configureSearchController()
+        navigationItem.title = "Главная"
     }
     
     // MARK: - Actions
@@ -106,7 +105,7 @@ private extension MainViewController {
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_: UICollectionView, numberOfItemsInSection: Int) -> Int {
         return model.items.count
     }
     
@@ -124,5 +123,11 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
       //      self.model.items[indexPath.item].isFavourite = isFavourite
         }
         return cell
+    }
+    
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = DetailItemViewController()
+        controller.itemModel = model.items[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

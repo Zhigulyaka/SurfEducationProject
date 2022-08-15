@@ -27,5 +27,23 @@ extension UIViewController {
         
         return collectionView
     }
+    
+    func addTableView() -> UITableView {
+        let tableView = UITableView(frame: .zero, style: .plain)
+
+        tableView.delegate = self as? UITableViewDelegate
+        tableView.dataSource = self as? UITableViewDataSource
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+
+        return tableView
+    }
 }
 
