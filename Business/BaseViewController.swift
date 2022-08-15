@@ -77,21 +77,24 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         searchController.delegate = self
         searchController.searchBar.delegate = self
         searchController.searchBar.showsCancelButton = false
-        //     searchController.becomeFirstResponder()
+        searchController.searchBar.searchTextField.becomeFirstResponder()
         
         if #available(iOS 13.0, *) {
-            
-            searchController.searchBar.searchTextField.leftView?.tintColor = .placeholderText
-            searchController.searchBar.searchTextField.backgroundColor = .systemBackground
-            
+
             searchController.searchBar.searchTextField.smartDashesType = .no
             searchController.searchBar.searchTextField.autocorrectionType = .no
             searchController.searchBar.searchTextField.autocapitalizationType = .none
             searchController.searchBar.searchTextField.spellCheckingType = .no
             
-            searchController.searchBar.searchTextField.placeholder = "Поиск"
+            searchController.searchBar.setImage(UIImage(named: "clearButton"), for: .clear, state: .normal)
+            searchController.searchBar.searchTextField.layer.cornerRadius = 19
+            searchController.searchBar.searchTextField.layer.cornerCurve = .continuous
+            searchController.searchBar.searchTextField.clipsToBounds = true
         }
-        navigationController?.navigationBar.topItem?.searchController = searchController
+        
+        searchController.searchBar.searchTextField.placeholder = "Поиск"
+        searchController.hidesNavigationBarDuringPresentation = false
+        navigationItem.titleView = searchController.searchBar
     }
     
     // MARK: - Actions
