@@ -15,7 +15,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         $0.searchBar.barStyle = .default
         $0.searchBar.searchBarStyle = .minimal
         $0.obscuresBackgroundDuringPresentation = false
-        $0.definesPresentationContext = true
+        $0.definesPresentationContext = false
         return $0
     }(UISearchController(searchResultsController: nil))
     
@@ -30,8 +30,21 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         configureBaseNavigationBar()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.searchController.searchBar.becomeFirstResponder()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchController.dismiss(animated: true)
+        searchController.resignFirstResponder()
     }
     
     // MARK: - NavBar
@@ -75,9 +88,8 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     public func configureSearchController() {
         searchController.searchResultsUpdater = self
         searchController.delegate = self
-        searchController.searchBar.delegate = self
         searchController.searchBar.showsCancelButton = false
-        searchController.searchBar.searchTextField.becomeFirstResponder()
+        searchController.view.layoutIfNeeded()
         
         if #available(iOS 13.0, *) {
 
@@ -117,23 +129,9 @@ extension BaseViewController: UISearchResultsUpdating {
 // MARK: - UISearchControllerDelegate
 
 extension BaseViewController: UISearchControllerDelegate {
-    func willPresentSearchController(_: UISearchController) {
-        isSearchMode = true
-        searchController.becomeFirstResponder()
-    }
+    func willPresentSearchController(_ searchController: UISearchController) {}
     
-    func willDismissSearchController(_: UISearchController) {
-        searchText = ""
-        isSearchMode = false
-        searchController.resignFirstResponder()
-    }
-}
-
-// MARK: - UISearchBarDelegate
-
-extension BaseViewController: UISearchBarDelegate {
-    
-    func searchBarCancelButtonClicked(_: UISearchBar) {
+    func willDismissSearchController(_ searchController: UISearchController) {
         searchText = ""
         searchController.resignFirstResponder()
     }

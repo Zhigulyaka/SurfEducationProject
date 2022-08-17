@@ -36,7 +36,7 @@ final class MainViewController: BaseViewController {
         configureModel()
         configureCollectionView()
         
-        let crendentials = AuthRequestModel(phone: "+79876543219", password: "qwerty")
+//        let crendentials = AuthRequestModel(phone: "+79876543219", password: "qwerty")
 //        AuthService().performLoginRequestAndSaveToken(credentials: crendentials) { result in
 //            switch result {
 //            case let .failure(error):
@@ -48,10 +48,13 @@ final class MainViewController: BaseViewController {
         PicturesService().loadPictures { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case let .failure(error):
+            case .failure:
                 break
             case let .success(resp):
-                self.model.items = resp
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.model.items = resp
+                }
             }
         }
     }
