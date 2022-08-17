@@ -25,12 +25,18 @@ final class SarchViewController: BaseViewController {
     // MARK: - Sublayers
     
     private var collectionView: UICollectionView!
+    private var plugView: PlugSearchView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    } (PlugSearchView())
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        definesPresentationContext = true
+        
         configureCollectionView()
         configureModel()
     }
@@ -38,6 +44,15 @@ final class SarchViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureSearchController()
+        setupPlugView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
     }
 }
 
@@ -48,6 +63,7 @@ private extension SarchViewController {
     func configureCollectionView() {
         collectionView = addCollectionView(layout: configureCollectionLayout())
         collectionView.register(MainItemCollectionViewCell.self, forCellWithReuseIdentifier: "\(MainItemCollectionViewCell.self)")
+        collectionView.keyboardDismissMode = .onDrag
     }
     
     func configureCollectionLayout() -> UICollectionViewFlowLayout {
@@ -63,6 +79,7 @@ private extension SarchViewController {
                                    right: Constants.horizontalInset)
         layout.minimumLineSpacing = Constants.spacingBetweenRows
         layout.minimumInteritemSpacing = .zero
+        layout.estimatedItemSize = .zero
         return layout
     }
     
@@ -74,6 +91,16 @@ private extension SarchViewController {
                 self.collectionView.reloadSections(indexSet)
             }, completion: nil)
         }
+    }
+    
+    func setupPlugView() {
+        view.addSubview(plugView)
+        
+        plugView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        plugView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        plugView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 169.0 * (view.frame.height/812.0)).isActive = true
+        
+        plugView.mode = .input
     }
 }
 
@@ -116,8 +143,12 @@ extension SarchViewController {
 
         if searchText != "" {
             model.filteredItems = model.items.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+            plugView.setHidden(!model.filteredItems.isEmpty)
+            plugView.mode = model.filteredItems.isEmpty ? .notFound : .input
         } else {
             model.filteredItems = []
+            plugView.setHidden(false)
+            plugView.mode = .input
         }
     }
 }

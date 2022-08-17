@@ -127,7 +127,7 @@ private extension BaseNetworkTask {
 
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         if isNeedInjectToken {
-            request.addValue("Token \(try tokenStorage.getToken().token)", forHTTPHeaderField: "Authorization")
+            request.addValue("Token 595d9f58b8ac34689b1326e2cf4ef803882995c267a00ce34c6220f4a6d8ed6a"/*"Token \(try tokenStorage.getToken().token)"*/, forHTTPHeaderField: "Authorization")
         }
 
         return request

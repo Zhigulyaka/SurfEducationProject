@@ -37,6 +37,7 @@
 		E326DFCF28AADBFA00BE3391 /* UIImageView+Extensoins.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFCE28AADBFA00BE3391 /* UIImageView+Extensoins.swift */; };
 		E326DFD128AAE9F100BE3391 /* DescriptionTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFD028AAE9F100BE3391 /* DescriptionTextTableViewCell.swift */; };
 		E326DFD428AAFD4200BE3391 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFD328AAFD4200BE3391 /* SearchViewController.swift */; };
+		E326DFD628AD7C3800BE3391 /* PlugSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFD528AD7C3800BE3391 /* PlugSearchView.swift */; };
 		E3C1FCB2289ECA7C0089D3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */; };
 		E3C1FCBB289ECA7E0089D3F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */; };
 		E3C1FCBE289ECA7E0089D3F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FCBC289ECA7E0089D3F8 /* LaunchScreen.storyboard */; };
@@ -73,6 +74,7 @@
 		E326DFCE28AADBFA00BE3391 /* UIImageView+Extensoins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensoins.swift"; sourceTree = "<group>"; };
 		E326DFD028AAE9F100BE3391 /* DescriptionTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextTableViewCell.swift; sourceTree = "<group>"; };
 		E326DFD328AAFD4200BE3391 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E326DFD528AD7C3800BE3391 /* PlugSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugSearchView.swift; sourceTree = "<group>"; };
 		E3C1FCAE289ECA7C0089D3F8 /* SurfEducationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfEducationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				E326DFD328AAFD4200BE3391 /* SearchViewController.swift */,
+				E326DFD528AD7C3800BE3391 /* PlugSearchView.swift */,
 			);
 			path = SearchModule;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				E305795328A00A2C00C98000 /* TabBarModel.swift in Sources */,
 				E326DFC128AAC93400BE3391 /* BaseTokenStorage.swift in Sources */,
 				E326DFCD28AAD6A700BE3391 /* DetailItemViewController.swift in Sources */,
+				E326DFD628AD7C3800BE3391 /* PlugSearchView.swift in Sources */,
 				E326DFCF28AADBFA00BE3391 /* UIImageView+Extensoins.swift in Sources */,
 				E326DFD128AAE9F100BE3391 /* DescriptionTextTableViewCell.swift in Sources */,
 				E326DFB928AAC88700BE3391 /* UImageView+ImageLoader.swift in Sources */,
