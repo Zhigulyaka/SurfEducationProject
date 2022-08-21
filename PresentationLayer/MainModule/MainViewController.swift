@@ -68,7 +68,7 @@ final class MainViewController: BaseViewController {
     // MARK: - Actions
     
     override func searchAction(_: Any) {
-        let searchConroller = SarchViewController()
+        let searchConroller = SearchViewController()
         searchConroller.model = model
         navigationController?.pushViewController(searchConroller, animated: true)
     }

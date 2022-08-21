@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SarchViewController: BaseViewController {
+final class SearchViewController: BaseViewController {
     // MARK: - Constants
     
     private enum Constants {
@@ -52,13 +52,13 @@ final class SarchViewController: BaseViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+        super.viewWillDisappear(animated)
     }
 }
 
 // MARK: - Private method
 
-private extension SarchViewController {
+private extension SearchViewController {
     
     func configureCollectionView() {
         collectionView = addCollectionView(layout: configureCollectionLayout())
@@ -106,7 +106,7 @@ private extension SarchViewController {
 
 // MARK: - UICollectionView
 
-extension SarchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_: UICollectionView, numberOfItemsInSection: Int) -> Int {
         return model.filteredItems.count
@@ -137,7 +137,7 @@ extension SarchViewController: UICollectionViewDataSource, UICollectionViewDeleg
 
 // MARK: - SearchDelegate
 
-extension SarchViewController {
+extension SearchViewController {
     override func updateSearchResults(for searchController: UISearchController) {
         super.updateSearchResults(for: searchController)
 

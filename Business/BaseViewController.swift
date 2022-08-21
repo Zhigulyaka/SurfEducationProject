@@ -20,7 +20,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     }(UISearchController(searchResultsController: nil))
     
     var searchText = ""
-    var isSearchMode = false
     
     // MARK: - Lifecycle
     
@@ -87,7 +86,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     
     public func configureSearchController() {
         searchController.searchResultsUpdater = self
-        searchController.delegate = self
         searchController.searchBar.showsCancelButton = false
         searchController.view.layoutIfNeeded()
         
@@ -123,17 +121,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
 extension BaseViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         searchText = searchController.searchBar.text ?? ""
-    }
-}
-
-// MARK: - UISearchControllerDelegate
-
-extension BaseViewController: UISearchControllerDelegate {
-    func willPresentSearchController(_ searchController: UISearchController) {}
-    
-    func willDismissSearchController(_ searchController: UISearchController) {
-        searchText = ""
-        searchController.resignFirstResponder()
     }
 }
 
