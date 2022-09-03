@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95CCBCF031D40F7BDD44E070 /* Pods_SurfEducationProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122F22C207256C0EEA94FCCD /* Pods_SurfEducationProject.framework */; };
 		E305795328A00A2C00C98000 /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305795228A00A2C00C98000 /* TabBarModel.swift */; };
 		E305795628A00ECE00C98000 /* TabBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305795528A00ECE00C98000 /* TabBarConfigurator.swift */; };
 		E305795828A010B700C98000 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305795728A010B700C98000 /* MainViewController.swift */; };
@@ -48,6 +49,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		122F22C207256C0EEA94FCCD /* Pods_SurfEducationProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurfEducationProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DBDC69CA30DC8DDDAD8236D /* Pods-SurfEducationProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfEducationProject.release.xcconfig"; path = "Target Support Files/Pods-SurfEducationProject/Pods-SurfEducationProject.release.xcconfig"; sourceTree = "<group>"; };
+		9AD8B48B6FE06C7D98A2D55C /* Pods-SurfEducationProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfEducationProject.debug.xcconfig"; path = "Target Support Files/Pods-SurfEducationProject/Pods-SurfEducationProject.debug.xcconfig"; sourceTree = "<group>"; };
 		E305795228A00A2C00C98000 /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
 		E305795528A00ECE00C98000 /* TabBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarConfigurator.swift; sourceTree = "<group>"; };
 		E305795728A010B700C98000 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -95,12 +99,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95CCBCF031D40F7BDD44E070 /* Pods_SurfEducationProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EE62794465B8FA5127B224E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				122F22C207256C0EEA94FCCD /* Pods_SurfEducationProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCF3007074CE6D84CD5A62C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9AD8B48B6FE06C7D98A2D55C /* Pods-SurfEducationProject.debug.xcconfig */,
+				4DBDC69CA30DC8DDDAD8236D /* Pods-SurfEducationProject.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E305794F28A006A700C98000 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +316,8 @@
 			children = (
 				E3C1FCB0289ECA7C0089D3F8 /* SurfEducationProject */,
 				E3C1FCAF289ECA7C0089D3F8 /* Products */,
+				CCF3007074CE6D84CD5A62C2 /* Pods */,
+				1EE62794465B8FA5127B224E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,9 +346,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3C1FCC2289ECA7E0089D3F8 /* Build configuration list for PBXNativeTarget "SurfEducationProject" */;
 			buildPhases = (
+				E3BC02BE28C3E09100E8D013 /* Configure Atlantis */,
+				3A2B3894BAB89FF2CBBF0DDB /* [CP] Check Pods Manifest.lock */,
 				E3C1FCAA289ECA7C0089D3F8 /* Sources */,
 				E3C1FCAB289ECA7C0089D3F8 /* Frameworks */,
 				E3C1FCAC289ECA7C0089D3F8 /* Resources */,
+				D1185C01E32B9072F0EE9637 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -380,6 +407,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A2B3894BAB89FF2CBBF0DDB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SurfEducationProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1185C01E32B9072F0EE9637 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SurfEducationProject/Pods-SurfEducationProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SurfEducationProject/Pods-SurfEducationProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SurfEducationProject/Pods-SurfEducationProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3BC02BE28C3E09100E8D013 /* Configure Atlantis */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Configure Atlantis";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash $SRCROOT/scripts/configure-atlantis.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E3C1FCAA289ECA7C0089D3F8 /* Sources */ = {
@@ -554,6 +641,7 @@
 		};
 		E3C1FCC3289ECA7E0089D3F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AD8B48B6FE06C7D98A2D55C /* Pods-SurfEducationProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -582,6 +670,7 @@
 		};
 		E3C1FCC4289ECA7E0089D3F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DBDC69CA30DC8DDDAD8236D /* Pods-SurfEducationProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
