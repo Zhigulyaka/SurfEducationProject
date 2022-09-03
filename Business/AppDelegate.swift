@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Atlantis
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+#if DEBUG
+    Atlantis.start(hostName: "alinas-macbook-air.local.")
+#endif
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         goToMain()
