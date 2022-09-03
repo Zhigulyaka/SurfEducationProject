@@ -48,7 +48,8 @@ final class MainViewController: BaseViewController {
         PicturesService().loadPictures { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .failure:
+            case let .failure(error):
+                print(error)
                 break
             case let .success(resp):
                 DispatchQueue.main.async { [weak self] in

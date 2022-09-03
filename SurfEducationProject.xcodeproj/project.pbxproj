@@ -38,6 +38,10 @@
 		E326DFD128AAE9F100BE3391 /* DescriptionTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFD028AAE9F100BE3391 /* DescriptionTextTableViewCell.swift */; };
 		E326DFD428AAFD4200BE3391 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFD328AAFD4200BE3391 /* SearchViewController.swift */; };
 		E326DFD628AD7C3800BE3391 /* PlugSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFD528AD7C3800BE3391 /* PlugSearchView.swift */; };
+		E326DFD828B241AE00BE3391 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFD728B241AE00BE3391 /* AuthorizationViewController.swift */; };
+		E326DFDD28B290E200BE3391 /* UITestField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFDC28B290E200BE3391 /* UITestField+Extensions.swift */; };
+		E326DFDF28B2BFB700BE3391 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFDE28B2BFB700BE3391 /* PaddingTextField.swift */; };
+		E3BC02B928B65B0000E8D013 /* AuthorizationFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC02B828B65B0000E8D013 /* AuthorizationFieldView.swift */; };
 		E3C1FCB2289ECA7C0089D3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */; };
 		E3C1FCBB289ECA7E0089D3F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */; };
 		E3C1FCBE289ECA7E0089D3F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FCBC289ECA7E0089D3F8 /* LaunchScreen.storyboard */; };
@@ -75,6 +79,10 @@
 		E326DFD028AAE9F100BE3391 /* DescriptionTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextTableViewCell.swift; sourceTree = "<group>"; };
 		E326DFD328AAFD4200BE3391 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E326DFD528AD7C3800BE3391 /* PlugSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugSearchView.swift; sourceTree = "<group>"; };
+		E326DFD728B241AE00BE3391 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		E326DFDC28B290E200BE3391 /* UITestField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITestField+Extensions.swift"; sourceTree = "<group>"; };
+		E326DFDE28B2BFB700BE3391 /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
+		E3BC02B828B65B0000E8D013 /* AuthorizationFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationFieldView.swift; sourceTree = "<group>"; };
 		E3C1FCAE289ECA7C0089D3F8 /* SurfEducationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfEducationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +128,7 @@
 		E305795128A009DF00C98000 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				E326DFD928B2439400BE3391 /* AuthorizationModule */,
 				E326DFD228AAFD2500BE3391 /* SearchModule */,
 				E326DFC628AAD53C00BE3391 /* DetailItemModule */,
 				E326DF9228A5891000BE3391 /* MainModule */,
@@ -168,6 +177,7 @@
 			children = (
 				E326DF9D28A82DD500BE3391 /* UIViewController+Extensions.swift */,
 				E326DFCE28AADBFA00BE3391 /* UIImageView+Extensoins.swift */,
+				E326DFDC28B290E200BE3391 /* UITestField+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,6 +277,16 @@
 				E326DFD528AD7C3800BE3391 /* PlugSearchView.swift */,
 			);
 			path = SearchModule;
+			sourceTree = "<group>";
+		};
+		E326DFD928B2439400BE3391 /* AuthorizationModule */ = {
+			isa = PBXGroup;
+			children = (
+				E326DFD728B241AE00BE3391 /* AuthorizationViewController.swift */,
+				E326DFDE28B2BFB700BE3391 /* PaddingTextField.swift */,
+				E3BC02B828B65B0000E8D013 /* AuthorizationFieldView.swift */,
+			);
+			path = AuthorizationModule;
 			sourceTree = "<group>";
 		};
 		E3C1FCA5289ECA7C0089D3F8 = {
@@ -370,6 +390,8 @@
 				E326DFBB28AAC8AB00BE3391 /* PictureResponseModel.swift in Sources */,
 				E305795A28A010D200C98000 /* FavouritesViewController.swift in Sources */,
 				E326DFAD28AAC73E00BE3391 /* NetworkMethod.swift in Sources */,
+				E326DFD828B241AE00BE3391 /* AuthorizationViewController.swift in Sources */,
+				E3BC02B928B65B0000E8D013 /* AuthorizationFieldView.swift in Sources */,
 				E305795328A00A2C00C98000 /* TabBarModel.swift in Sources */,
 				E326DFC128AAC93400BE3391 /* BaseTokenStorage.swift in Sources */,
 				E326DFCD28AAD6A700BE3391 /* DetailItemViewController.swift in Sources */,
@@ -382,6 +404,7 @@
 				E305795628A00ECE00C98000 /* TabBarConfigurator.swift in Sources */,
 				E326DFAA28AAC6FB00BE3391 /* BaseNetworkTask.swift in Sources */,
 				E326DFCA28AAD63400BE3391 /* TitleDateTableViewCell.swift in Sources */,
+				E326DFDF28B2BFB700BE3391 /* PaddingTextField.swift in Sources */,
 				E326DFBD28AAC8CF00BE3391 /* PicturesService.swift in Sources */,
 				E326DF9128A584C800BE3391 /* MainModel.swift in Sources */,
 				E326DF9528A5897000BE3391 /* MainItemCollectionViewCell.swift in Sources */,
@@ -396,6 +419,7 @@
 				E305795C28A010E200C98000 /* ProfileViewController.swift in Sources */,
 				E3C1FCB2289ECA7C0089D3F8 /* AppDelegate.swift in Sources */,
 				E305795828A010B700C98000 /* MainViewController.swift in Sources */,
+				E326DFDD28B290E200BE3391 /* UITestField+Extensions.swift in Sources */,
 				E326DFB528AAC82E00BE3391 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,6 +559,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JQPK9L84RR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -562,6 +587,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JQPK9L84RR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
