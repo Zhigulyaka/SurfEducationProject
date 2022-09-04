@@ -36,15 +36,6 @@ final class MainViewController: BaseViewController {
         configureModel()
         configureCollectionView()
         
-//        let crendentials = AuthRequestModel(phone: "+79876543219", password: "qwerty")
-//        AuthService().performLoginRequestAndSaveToken(credentials: crendentials) { result in
-//            switch result {
-//            case let .failure(error):
-//                print(error)
-//            case let .success(resp):
-//                print(resp)
-//            }
-//        }
         PicturesService().loadPictures { [weak self] result in
             guard let self = self else { return }
             switch result {

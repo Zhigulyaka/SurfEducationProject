@@ -24,8 +24,8 @@ var window: UIWindow?
     }
     
     func goToMain() {
-   //     window?.rootViewController = UINavigationController(rootViewController: AuthorizationViewController())
-        window?.rootViewController = TabBarConfigurator().configure()
+        window?.rootViewController = UINavigationController(rootViewController: AuthorizationViewController())
+//        window?.rootViewController = TabBarConfigurator().configure()
     }
 }
 

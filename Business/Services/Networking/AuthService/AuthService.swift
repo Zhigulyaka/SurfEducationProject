@@ -28,7 +28,9 @@ struct AuthService {
                 }
             }
 
-            onResponseWasReceived(result)
+            DispatchQueue.main.async {
+                onResponseWasReceived(result)
+            }
         }
     }
 }
