@@ -8,24 +8,31 @@
 import UIKit
 
 extension UIView {
-    private static let kRotationAnimationKey = "rotationanimationkey"
+    // MARK: - Constants
+    
+    private enum Conatants {
+        static let count: CGFloat = 2
+        static let kRotationAnimationKey = "rotationanimationkey"
+    }
+    
+    // MARK: - Public methods
 
-    func rotate(duration: Double = 1) {
-        if layer.animation(forKey: UIView.kRotationAnimationKey) == nil {
+    func rotate(duration: Double) {
+        if layer.animation(forKey: Conatants.kRotationAnimationKey) == nil {
             let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
 
             rotationAnimation.fromValue = 0.0
-            rotationAnimation.toValue = Float.pi * 2.0
+            rotationAnimation.toValue = Double.pi * Conatants.count
             rotationAnimation.duration = duration
             rotationAnimation.repeatCount = Float.infinity
 
-            layer.add(rotationAnimation, forKey: UIView.kRotationAnimationKey)
+            layer.add(rotationAnimation, forKey: Conatants.kRotationAnimationKey)
         }
     }
 
     func stopRotating() {
-        if layer.animation(forKey: UIView.kRotationAnimationKey) != nil {
-            layer.removeAnimation(forKey: UIView.kRotationAnimationKey)
+        if layer.animation(forKey: Conatants.kRotationAnimationKey) != nil {
+            layer.removeAnimation(forKey: Conatants.kRotationAnimationKey)
         }
     }
 }

@@ -12,6 +12,7 @@ class LoaderButton: UIButton {
     
     private enum Constants {
         static let loaderSize: CGFloat = 16
+        static let duration: CGFloat = 2
     }
     
     // MARK: - Sublayers
@@ -56,7 +57,7 @@ extension LoaderButton {
         bringSubviewToFront(loader)
         loader.isHidden = false
         setTitleColor(.black, for: .normal)
-        loader.rotate(duration: 2)
+        loader.rotate(duration: Constants.duration)
     }
     
     func stopLoader() {
