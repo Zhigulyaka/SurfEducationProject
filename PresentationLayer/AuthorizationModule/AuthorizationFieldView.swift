@@ -10,28 +10,20 @@ import UIKit
 enum TextFieldMode {
     case login
     case password
-    
-    var placeholderText: String {
-        switch self {
-        case .login:
-            return "Логин"
-        case .password:
-            return "Пароль"
-        }
-    }
 }
 
 class AuthorizationFieldView: UIView {
+    // MARK: - Handlers
+    
+    var changeState: (() -> Void)? 
+    
     // MARK: - Constants
 
     private enum Constants {
-        static let buttonTextSize: CGFloat = 16
         static let labelTextSize: CGFloat = 12
         static let textFieldRadius: CGFloat = 10
         static let insets: CGFloat = 16
-        static let loginTopInset: CGFloat = 30
         static let textFieldHeight: CGFloat = 56
-        static let bigInset: CGFloat = 32
         static let alpha: CGFloat = 0.5
     }
 
@@ -43,7 +35,8 @@ class AuthorizationFieldView: UIView {
     // Public
     public var isError = false {
         didSet {
-            labelConstraint.isActive = !isError
+            textField.changeSeparatorErrorState(isError: isError)
+            updateErrorLabel()
         }
     }
     public var mode: TextFieldMode? {
@@ -94,10 +87,11 @@ private extension AuthorizationFieldView {
         case .login:
             textField.placeholder = "Логин"
             textField.keyboardType = .decimalPad
+            textField.rightViewMode = .never
         case .password:
             textField.placeholder = "Пароль"
             textField.isSecureTextEntry = true
-            textField.clearButtonMode = .whileEditing
+            textField.rightViewMode = .whileEditing
         }
     }
     
@@ -135,6 +129,7 @@ extension AuthorizationFieldView: UITextFieldDelegate {
             textField.text = "+7 ("
         }
         isError = false
+        changeState?()
         return true
     }
     
@@ -152,5 +147,18 @@ extension AuthorizationFieldView: UITextFieldDelegate {
         let newString = (text as NSString).replacingCharacters(in: range, with: string)
         textField.text = textField.phoneFormat(phone: newString)
         return false
+    }
+}
+
+// MARK: - Utilts
+
+private extension AuthorizationFieldView {
+    
+    func updateErrorLabel() {
+        labelConstraint.isActive = !isError
+        if mode == .login {
+            let isEmpty = textField.text?.isEmpty ?? false
+            errorLabel.text = isEmpty ? "Поле не может быть пустым" : "Слишком короткий номер телефона"
+        }
     }
 }

@@ -18,6 +18,7 @@ extension UITextField {
     
     private enum Constants {
         static let separatorHeight: CGFloat = 1
+        static let separatorTag = 000_111
     }
     
     // MARK: - Layouts
@@ -25,6 +26,7 @@ extension UITextField {
     func addSeparator() {
         let separator = UIView(frame: CGRect(x: 0, y: frame.height, width: frame.width, height: Constants.separatorHeight))
         separator.backgroundColor = .placeholderText
+        separator.tag = Constants.separatorTag
         addSubview(separator)
     }
     
@@ -68,3 +70,23 @@ extension UITextField {
         return result
     }
 }
+
+// MARK: - Utilts
+
+extension UITextField {
+    
+    func changeSeparatorErrorState(isError: Bool) {
+        for subview in subviews {
+            if subview.tag == Constants.separatorTag {
+                subview.backgroundColor = isError ? .red : .placeholderText
+            }
+        }
+    }
+    
+    func textPhone() -> String {
+        guard let text = text else { return "" }
+        let modifyText = text.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "")
+        return modifyText.replacingOccurrences(of: " ", with: "")
+    }
+}
+

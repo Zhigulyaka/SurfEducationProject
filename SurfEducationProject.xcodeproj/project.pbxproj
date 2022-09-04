@@ -43,6 +43,8 @@
 		E326DFDD28B290E200BE3391 /* UITestField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFDC28B290E200BE3391 /* UITestField+Extensions.swift */; };
 		E326DFDF28B2BFB700BE3391 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DFDE28B2BFB700BE3391 /* PaddingTextField.swift */; };
 		E3BC02B928B65B0000E8D013 /* AuthorizationFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC02B828B65B0000E8D013 /* AuthorizationFieldView.swift */; };
+		E3BC02C028C537E100E8D013 /* LoaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC02BF28C537E100E8D013 /* LoaderButton.swift */; };
+		E3BC02C228C5408000E8D013 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC02C128C5408000E8D013 /* UIView+Extensions.swift */; };
 		E3C1FCB2289ECA7C0089D3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */; };
 		E3C1FCBB289ECA7E0089D3F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */; };
 		E3C1FCBE289ECA7E0089D3F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FCBC289ECA7E0089D3F8 /* LaunchScreen.storyboard */; };
@@ -87,6 +89,8 @@
 		E326DFDC28B290E200BE3391 /* UITestField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITestField+Extensions.swift"; sourceTree = "<group>"; };
 		E326DFDE28B2BFB700BE3391 /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		E3BC02B828B65B0000E8D013 /* AuthorizationFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationFieldView.swift; sourceTree = "<group>"; };
+		E3BC02BF28C537E100E8D013 /* LoaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderButton.swift; sourceTree = "<group>"; };
+		E3BC02C128C5408000E8D013 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		E3C1FCAE289ECA7C0089D3F8 /* SurfEducationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfEducationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C1FCB1289ECA7C0089D3F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3C1FCBA289ECA7E0089D3F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				E326DF9D28A82DD500BE3391 /* UIViewController+Extensions.swift */,
 				E326DFCE28AADBFA00BE3391 /* UIImageView+Extensoins.swift */,
 				E326DFDC28B290E200BE3391 /* UITestField+Extensions.swift */,
+				E3BC02C128C5408000E8D013 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				E326DFD728B241AE00BE3391 /* AuthorizationViewController.swift */,
 				E326DFDE28B2BFB700BE3391 /* PaddingTextField.swift */,
 				E3BC02B828B65B0000E8D013 /* AuthorizationFieldView.swift */,
+				E3BC02BF28C537E100E8D013 /* LoaderButton.swift */,
 			);
 			path = AuthorizationModule;
 			sourceTree = "<group>";
@@ -473,12 +479,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3BC02C028C537E100E8D013 /* LoaderButton.swift in Sources */,
 				E326DFD428AAFD4200BE3391 /* SearchViewController.swift in Sources */,
 				E326DFBB28AAC8AB00BE3391 /* PictureResponseModel.swift in Sources */,
 				E305795A28A010D200C98000 /* FavouritesViewController.swift in Sources */,
 				E326DFAD28AAC73E00BE3391 /* NetworkMethod.swift in Sources */,
 				E326DFD828B241AE00BE3391 /* AuthorizationViewController.swift in Sources */,
 				E3BC02B928B65B0000E8D013 /* AuthorizationFieldView.swift in Sources */,
+				E3BC02C228C5408000E8D013 /* UIView+Extensions.swift in Sources */,
 				E305795328A00A2C00C98000 /* TabBarModel.swift in Sources */,
 				E326DFC128AAC93400BE3391 /* BaseTokenStorage.swift in Sources */,
 				E326DFCD28AAD6A700BE3391 /* DetailItemViewController.swift in Sources */,
